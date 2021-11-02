@@ -2,11 +2,11 @@ import * as WebBrowser from 'expo-web-browser';
 import React from 'react';
 import { StyleSheet, TouchableOpacity } from 'react-native';
 
-import Colors from '../constants/Colors';
+import { colors } from '../constants/Colors';
 import { MonoText } from './StyledText';
 import { Text, View } from './Themed';
 
-export default function EditScreenInfo({ path }: { path: string }) {
+export const EditScreenInfo = ({ path }: { path: string }) => {
   return (
     <View>
       <View style={styles.getStartedContainer}>
@@ -34,7 +34,7 @@ export default function EditScreenInfo({ path }: { path: string }) {
 
       <View style={styles.helpContainer}>
         <TouchableOpacity onPress={handleHelpPress} style={styles.helpLink}>
-          <Text style={styles.helpLinkText} lightColor={Colors.light.tint}>
+          <Text style={styles.helpLinkText} lightColor={colors.light.tint}>
             Tap here if your app doesn't automatically update after making changes
           </Text>
         </TouchableOpacity>
@@ -43,7 +43,7 @@ export default function EditScreenInfo({ path }: { path: string }) {
   );
 }
 
-function handleHelpPress() {
+const handleHelpPress = () => {
   WebBrowser.openBrowserAsync(
     'https://docs.expo.io/get-started/create-a-new-app/#opening-the-app-on-your-phonetablet'
   );
