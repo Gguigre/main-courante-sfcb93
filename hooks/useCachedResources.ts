@@ -8,7 +8,7 @@ export const useCachedResources = () => {
 
   // Load any resources or data that we need prior to rendering the app
   React.useEffect(() => {
-     const loadResourcesAndDataAsync = async () => {
+    const loadResourcesAndDataAsync = async () => {
       try {
         SplashScreen.preventAutoHideAsync();
 
@@ -24,10 +24,10 @@ export const useCachedResources = () => {
         setLoadingComplete(true);
         SplashScreen.hideAsync();
       }
-    }
+    };
 
     loadResourcesAndDataAsync();
   }, []);
 
   return isLoadingComplete;
-}
+};

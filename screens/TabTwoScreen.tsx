@@ -12,7 +12,7 @@ export const TabTwoScreen = () => {
       <EditScreenInfo path="/screens/TabTwoScreen.tsx" />
     </View>
   );
-}
+};
 
 const styles = StyleSheet.create({
   container: {

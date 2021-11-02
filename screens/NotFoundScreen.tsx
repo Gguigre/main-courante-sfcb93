@@ -13,7 +13,7 @@ export const NotFoundScreen = ({ navigation }: RootStackScreenProps<'NotFound'>)
       </TouchableOpacity>
     </View>
   );
-}
+};
 
 const styles = StyleSheet.create({
   container: {
@@ -30,6 +30,7 @@ const styles = StyleSheet.create({
     marginTop: 15,
     paddingVertical: 15,
   },
+  // eslint-disable-next-line react-native/no-color-literals
   linkText: {
     fontSize: 14,
     color: '#2e78b7',

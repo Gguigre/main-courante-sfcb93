@@ -16,7 +16,7 @@ export const ModalScreen = () => {
       <StatusBar style={Platform.OS === 'ios' ? 'light' : 'auto'} />
     </View>
   );
-}
+};
 
 const styles = StyleSheet.create({
   container: {

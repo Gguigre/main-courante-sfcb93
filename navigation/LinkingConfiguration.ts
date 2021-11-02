@@ -32,4 +32,3 @@ export const linkingConfiguration: LinkingOptions<RootStackParamList> = {
     },
   },
 };
-

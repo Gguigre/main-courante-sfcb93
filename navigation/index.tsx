@@ -23,11 +23,12 @@ export const Navigation = ({ colorScheme }: { colorScheme: ColorSchemeName }) =>
   return (
     <NavigationContainer
       linking={linkingConfiguration}
-      theme={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
+      theme={colorScheme === 'dark' ? DarkTheme : DefaultTheme}
+    >
       <RootNavigator />
     </NavigationContainer>
   );
-}
+};
 
 /**
  * A root stack navigator is often used for displaying modals on top of all other content.
@@ -45,7 +46,7 @@ const RootNavigator = () => {
       </Stack.Group>
     </Stack.Navigator>
   );
-}
+};
 
 /**
  * A bottom tab navigator displays tab buttons on the bottom of the display to switch screens.
@@ -61,7 +62,8 @@ const BottomTabNavigator = () => {
       initialRouteName="TabOne"
       screenOptions={{
         tabBarActiveTintColor: colors[colorScheme].tint,
-      }}>
+      }}
+    >
       <BottomTab.Screen
         name="TabOne"
         component={TabOneScreen}
@@ -73,11 +75,13 @@ const BottomTabNavigator = () => {
               onPress={() => navigation.navigate('Modal')}
               style={({ pressed }) => ({
                 opacity: pressed ? 0.5 : 1,
-              })}>
+              })}
+            >
               <FontAwesome
                 name="info-circle"
                 size={25}
                 color={colors[colorScheme].text}
+                // eslint-disable-next-line react-native/no-inline-styles
                 style={{ marginRight: 15 }}
               />
             </Pressable>
@@ -94,14 +98,15 @@ const BottomTabNavigator = () => {
       />
     </BottomTab.Navigator>
   );
-}
+};
 
 /**
  * You can explore the built-in icon families and icons on the web at https://icons.expo.fyi/
  */
-const TabBarIcon =(props: {
+const TabBarIcon = (props: {
   name: React.ComponentProps<typeof FontAwesome>['name'];
   color: string;
 }) => {
+  // eslint-disable-next-line react-native/no-inline-styles
   return <FontAwesome size={30} style={{ marginBottom: -3 }} {...props} />;
-}
+};
