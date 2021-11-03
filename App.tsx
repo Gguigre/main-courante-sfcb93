@@ -6,7 +6,7 @@ import { useCachedResources } from './hooks/useCachedResources';
 import { useColorScheme } from './hooks/useColorScheme';
 import { Navigation } from './navigation';
 
-export const App = () => {
+const App = () => {
   const isLoadingComplete = useCachedResources();
   const colorScheme = useColorScheme();
 
@@ -21,3 +21,5 @@ export const App = () => {
     );
   }
 };
+
+export default App;
