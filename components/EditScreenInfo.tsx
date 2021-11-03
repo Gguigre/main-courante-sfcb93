@@ -3,6 +3,7 @@ import React from 'react';
 import { StyleSheet, TouchableOpacity } from 'react-native';
 
 import { colors } from '../constants/Colors';
+import { i18n } from '../lib/i18n/i18n';
 import { MonoText } from './StyledText';
 import { Text, View } from './Themed';
 
@@ -15,7 +16,7 @@ export const EditScreenInfo = ({ path }: { path: string }) => {
           lightColor="rgba(0,0,0,0.8)"
           darkColor="rgba(255,255,255,0.8)"
         >
-          Open up the code for this screen:
+          {i18n.t('editScreenInfo.openUp')}
         </Text>
 
         <View
@@ -31,14 +32,14 @@ export const EditScreenInfo = ({ path }: { path: string }) => {
           lightColor="rgba(0,0,0,0.8)"
           darkColor="rgba(255,255,255,0.8)"
         >
-          Change any of the text, save the file, and your app will automatically update.
+          {i18n.t('editScreenInfo.changeAndSave')}
         </Text>
       </View>
 
       <View style={styles.helpContainer}>
         <TouchableOpacity onPress={handleHelpPress} style={styles.helpLink}>
           <Text style={styles.helpLinkText} lightColor={colors.light.tint}>
-            Tap here if your app doesn't automatically update after making changes
+            {i18n.t('editScreenInfo.tapIfNotWorking')}
           </Text>
         </TouchableOpacity>
       </View>
