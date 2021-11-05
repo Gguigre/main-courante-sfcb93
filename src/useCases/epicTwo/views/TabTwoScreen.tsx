@@ -1,16 +1,15 @@
 import * as React from 'react';
 import { StyleSheet } from 'react-native';
 
-import { EditScreenInfo } from '../components/EditScreenInfo';
-import { Text, View } from '../components/Themed';
-import { i18n } from '../lib/i18n/i18n';
+import { EditScreenInfo } from '../../../shared/views/EditScreenInfo';
+import { Text, View } from '../../../shared/views/Themed';
 
-export const TabOneScreen = () => {
+export const TabTwoScreen = () => {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>{i18n.t('tabOne.title')}</Text>
+      <Text style={styles.title}>Tab Two</Text>
       <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
-      <EditScreenInfo path="/screens/TabOneScreen.tsx" />
+      <EditScreenInfo path="/screens/TabTwoScreen.tsx" />
     </View>
   );
 };

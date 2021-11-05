@@ -10,14 +10,14 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import * as React from 'react';
 import { ColorSchemeName, Pressable } from 'react-native';
 
-import { colors } from '../constants/Colors';
-import { useColorScheme } from '../hooks/useColorScheme';
-import { ModalScreen } from '../screens/ModalScreen';
-import { NotFoundScreen } from '../screens/NotFoundScreen';
-import { TabOneScreen } from '../screens/TabOneScreen';
-import { TabTwoScreen } from '../screens/TabTwoScreen';
-import { RootStackParamList, RootTabParamList, RootTabScreenProps } from '../types';
+import { colors } from '../../../constants/Colors';
+import { useColorScheme } from '../useColorScheme';
+import { ModalScreen } from '../../shared/views/ModalScreen';
+import { TabOneScreen } from '../../useCases/epicOne/views/TabOneScreen';
+import { TabTwoScreen } from '../../useCases/epicTwo/views/TabTwoScreen';
+import { RootStackParamList, RootTabParamList, RootTabScreenProps } from '../../../types';
 import { linkingConfiguration } from './LinkingConfiguration';
+import { NotFoundScreen } from '../../shared/views/NotFoundScreen';
 
 export const Navigation = ({ colorScheme }: { colorScheme: ColorSchemeName }) => {
   return (
