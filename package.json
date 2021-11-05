@@ -9,7 +9,10 @@
     "test": "jest",
     "test:watch": "jest --watchAll",
     "lint": "eslint .",
-    "types": "tsc --noEmit"
+    "types": "tsc --noEmit",
+    "deploy:prod": "expo publish --release-channel prod",
+    "deploy:staging": "expo publish --release-channel staging",
+    "build:prod": "expo build:ios -t archive --release-channel prod --no-wait && expo build:android --release-channel prod -t app-bundle --no-wait"
   },
   "jest": {
     "preset": "jest-expo"
@@ -27,6 +30,7 @@
     "expo-localization": "~11.0.0",
     "expo-splash-screen": "~0.13.3",
     "expo-status-bar": "~1.1.0",
+    "expo-updates": "~0.10.10",
     "expo-web-browser": "~10.0.3",
     "i18n-js": "^3.8.0",
     "react": "17.0.1",
@@ -39,6 +43,7 @@
   "devDependencies": {
     "@babel/core": "^7.12.9",
     "@testing-library/react-native": "^8.0.0",
+    "@expo/config": "^6.0.6",
     "@types/i18n-js": "^3.8.2",
     "@types/react": "~17.0.21",
     "@types/react-native": "~0.64.12",
