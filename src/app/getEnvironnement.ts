@@ -8,11 +8,25 @@ type Env = {
 
 export const getEnvironment = (): Env => {
   if (Updates.releaseChannel.startsWith('prod')) {
-    return { envName: 'PRODUCTION', apiEndpoint: '', apiKey: 'ddd' }; // prod env settings
+    return {
+      envName: 'PRODUCTION',
+      apiEndpoint: 'https://jsonplaceholder.typicode.com/users',
+      apiKey: 'ddd',
+    }; // prod env settings
   } else if (Updates.releaseChannel.startsWith('staging')) {
-    return { envName: 'STAGING', apiEndpoint: '', apiKey: 'ddd' }; // stage env settings
+    return {
+      envName: 'STAGING',
+      apiEndpoint: 'https://jsonplaceholder.typicode.com/users',
+      apiKey: 'ddd',
+    }; // stage env settings
   } else {
     // assume any other release channel is development
-    return { envName: 'DEVELOPMENT', apiEndpoint: '', apiKey: 'ddd' }; // dev env settings
+    return {
+      envName: 'DEVELOPMENT',
+      apiEndpoint: 'https://jsonplaceholder.typicode.com/users',
+      apiKey: 'ddd',
+    }; // dev env settings
   }
 };
+
+export const apiEndpoint = getEnvironment().apiEndpoint;
