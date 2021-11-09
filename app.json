@@ -19,12 +19,14 @@
       "**/*"
     ],
     "ios": {
+      "buildNumber": "1.0.0",
       "bundleIdentifier": "com.yomoni.mobile",
       "googleServicesFile": "./GoogleService-Info.plist",
       "supportsTablet": true
     },
     "android": {
       "package": "com.yomoni.mobile",
+      "versionCode": 430010000,
       "googleServicesFile": "./google-services.json",
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
