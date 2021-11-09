@@ -7,6 +7,7 @@ import { FontAwesome } from '@expo/vector-icons';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { NavigationContainer, DefaultTheme, DarkTheme } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { useNavigationContainerRef } from '@react-navigation/core';
 import * as React from 'react';
 import { ColorSchemeName, Pressable } from 'react-native';
 
@@ -18,12 +19,29 @@ import { TabTwoScreen } from '../../useCases/epicTwo/views/TabTwoScreen';
 import { RootStackParamList, RootTabParamList, RootTabScreenProps } from '../../../types';
 import { linkingConfiguration } from './LinkingConfiguration';
 import { NotFoundScreen } from '../../shared/views/NotFoundScreen';
+import { Analytics } from '../analytics';
 
 export const Navigation = ({ colorScheme }: { colorScheme: ColorSchemeName }) => {
+  const navigationRef = useNavigationContainerRef<RootStackParamList>();
+  const routeNameRef = React.useRef<string>();
+
   return (
     <NavigationContainer
       linking={linkingConfiguration}
       theme={colorScheme === 'dark' ? DarkTheme : DefaultTheme}
+      ref={navigationRef}
+      onReady={() => {
+        routeNameRef.current = navigationRef.getCurrentRoute()?.name;
+      }}
+      onStateChange={async () => {
+        const previousRouteName = routeNameRef.current;
+        const currentRouteName = navigationRef.getCurrentRoute()?.name || '';
+
+        if (previousRouteName !== currentRouteName) {
+          await Analytics.setCurrentScreen(currentRouteName);
+        }
+        routeNameRef.current = currentRouteName;
+      }}
     >
       <RootNavigator />
     </NavigationContainer>

@@ -13,4 +13,9 @@ web-build/
 # macOS
 .DS_Store
 
+# Jest
 coverage
+
+# TODO: Remove after setup 
+google-services.json
+GoogleService-Info.plist
