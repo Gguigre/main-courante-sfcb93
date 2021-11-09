@@ -1,9 +1,14 @@
 # Setup the app
 
+### App
+
 1. Clone this repo
 2. Change the git remote origin
    `git remote remove origin && git remote add origin <YOU_GIT_REPO>`
 3. Change the [app.json](./app.json) (name, slug, scheme, packageName, bundleIdentifier)
+
+### Firebase
+
 4. Create the Firebase project and create Android and iOS apps
 5. Download Google services files ("google-services.json" and "GoogleService-Info.plist") and move them to the root folder
 6. Remove the last section in [.gitignore](.gitignore)

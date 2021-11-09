@@ -6,6 +6,7 @@ import { useCachedResources } from './src/app/useCachedResources';
 import { Navigation } from './src/app/navigation';
 import { useColorScheme } from './src/app/useColorScheme';
 import { HttpProvider } from './src/app/http/HttpProvider';
+import { ErrorBoundary } from './src/app/monitoring';
 
 const App = () => {
   const isLoadingComplete = useCachedResources();
@@ -15,12 +16,14 @@ const App = () => {
     return null;
   } else {
     return (
-      <HttpProvider>
-        <SafeAreaProvider>
-          <Navigation colorScheme={colorScheme} />
-          <StatusBar />
-        </SafeAreaProvider>
-      </HttpProvider>
+      <ErrorBoundary>
+        <HttpProvider>
+          <SafeAreaProvider>
+            <Navigation colorScheme={colorScheme} />
+            <StatusBar />
+          </SafeAreaProvider>
+        </HttpProvider>
+      </ErrorBoundary>
     );
   }
 };
