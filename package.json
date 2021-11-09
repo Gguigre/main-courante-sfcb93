@@ -14,9 +14,6 @@
     "deploy:staging": "expo publish --release-channel staging",
     "build:prod": "expo build:ios -t archive --release-channel prod --no-wait && expo build:android --release-channel prod -t app-bundle --no-wait"
   },
-  "jest": {
-    "preset": "jest-expo"
-  },
   "dependencies": {
     "@expo/vector-icons": "^12.0.0",
     "@react-navigation/bottom-tabs": "^6.0.5",
