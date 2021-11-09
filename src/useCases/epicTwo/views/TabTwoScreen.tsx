@@ -1,10 +1,19 @@
+import { BottomTabNavigationProp } from '@react-navigation/bottom-tabs';
+import { CompositeNavigationProp } from '@react-navigation/core';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import * as React from 'react';
 import { StyleSheet } from 'react-native';
+import { RootStackParamList, RootTabParamList } from '../../../../types';
 
 import { EditScreenInfo } from '../../../shared/views/EditScreenInfo';
 import { Text, View } from '../../../shared/views/Themed';
 
-export const TabTwoScreen = () => {
+type Props = CompositeNavigationProp<
+  BottomTabNavigationProp<RootTabParamList, 'TabTwo'>,
+  NativeStackNavigationProp<RootStackParamList>
+>;
+
+export const TabTwoScreen: React.FunctionComponent<Props> = () => {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Tab Two</Text>

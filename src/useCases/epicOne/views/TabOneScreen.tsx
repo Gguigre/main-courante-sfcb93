@@ -4,8 +4,17 @@ import { Text, View } from '../../../shared/views/Themed';
 import { i18n } from '../../../app/i18n/i18n';
 import { useOne } from './useOne';
 import { colors } from '../../../../constants/Colors';
+import { CompositeNavigationProp } from '@react-navigation/core';
+import { RootStackParamList, RootTabParamList } from '../../../../types';
+import { BottomTabNavigationProp } from '@react-navigation/bottom-tabs';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 
-export const TabOneScreen = () => {
+type Props = CompositeNavigationProp<
+  BottomTabNavigationProp<RootTabParamList, 'TabOne'>,
+  NativeStackNavigationProp<RootStackParamList>
+>;
+
+export const TabOneScreen: React.FunctionComponent<Props> = () => {
   const { data } = useOne();
 
   return (
