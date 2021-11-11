@@ -21,6 +21,13 @@ _Note: when you log Analytics events in development, then you could have a warni
    - In app.json fill in the Sentry fields in the postPublish hook ("organization", "project", "authToken")
    - In the [monitoring/index.tsx](./src/app/monitoring/index.tsx) file fill in the DSN key you can find here
 
+### Travis
+
+8. Create an Expo bot in access-toke section of your [Expo organization settings](https://expo.dev/accounts/<YOUR_ORGANIZATION>/settings/access-tokens)
+9. Go in your Travis settings and add a new Environnement variable EXPO_TOKEN. Tha value of your varaible is the Bot access token
+
+### The End
+
 At the end of the setup : Remove this section of the Readme
 
 # Install
@@ -37,6 +44,7 @@ At the end of the setup : Remove this section of the Readme
 
 - For production : run `yarn deploy:prod`
 - For staging : run `yarn deploy:staging`
+  You will find your application on this url : https://exp.host/@<YOUR_ORGANIZATION>/<YOUR_APP_NAME>?release-channel=staging
 
 ## Deploy a Store update
 
