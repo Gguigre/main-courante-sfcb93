@@ -15,7 +15,7 @@
     "deploy:staging": "expo publish --release-channel staging",
     "build:prod": "expo build:ios -t archive --release-channel prod --no-wait && expo build:android --release-channel prod -t app-bundle --no-wait",
     "predeploy:prod": "npx standard-version --release-as patch",
-    "prebuild:prod": "npx standard-version --release-as minor"
+    "prebuild:prod": "read -r -p \"This will also PUBLISH on prod to ALL USERS.\nAre you sure? [y/N] \" response; if [[ \"$response\" =~ ^([yY][eE][sS]|[yY])$ ]]; then npx standard-version --release-as minor; else exit 1 ;fi"
   },
   "dependencies": {
     "@expo/vector-icons": "^12.0.0",
