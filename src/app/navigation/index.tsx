@@ -5,21 +5,20 @@
  */
 import { FontAwesome } from '@expo/vector-icons';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { NavigationContainer, DefaultTheme, DarkTheme } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { useNavigationContainerRef } from '@react-navigation/core';
+import { DarkTheme, DefaultTheme, NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import * as React from 'react';
-import { ColorSchemeName, Pressable } from 'react-native';
-
+import { ColorSchemeName } from 'react-native';
 import { colors } from '../../../constants/Colors';
-import { useColorScheme } from '../useColorScheme';
-import { ModalScreen } from '../../shared/views/ModalScreen';
+import { RootStackParamList, RootTabParamList } from '../../../types';
 import { TabOneScreen } from '../../modules/epicOne/views/TabOneScreen';
 import { TabTwoScreen } from '../../modules/epicTwo/views/TabTwoScreen';
-import { RootStackParamList, RootTabParamList, RootTabScreenProps } from '../../../types';
-import { linkingConfiguration } from './LinkingConfiguration';
+import { ModalScreen } from '../../shared/views/ModalScreen';
 import { NotFoundScreen } from '../../shared/views/NotFoundScreen';
 import { Analytics } from '../analytics';
+import { useColorScheme } from '../useColorScheme';
+import { linkingConfiguration } from './LinkingConfiguration';
 
 export const Navigation = ({ colorScheme }: { colorScheme: ColorSchemeName }) => {
   const navigationRef = useNavigationContainerRef<RootStackParamList>();
@@ -77,7 +76,7 @@ const BottomTabNavigator = () => {
 
   return (
     <BottomTab.Navigator
-      initialRouteName="TabOne"
+      initialRouteName="CurrentPost"
       screenOptions={{
         tabBarActiveTintColor: colors[colorScheme].tint,
       }}
@@ -91,27 +90,11 @@ const BottomTabNavigator = () => {
         }}
       />
       <BottomTab.Screen
-        name="PostsList"
+        name="AllPosts"
         component={TabOneScreen}
-        options={({ navigation }: RootTabScreenProps<'TabOne'>) => ({
+        options={() => ({
           title: 'Liste des postes',
           tabBarIcon: ({ color }) => <TabBarIcon name="list" color={color} />,
-          // headerRight: () => (
-          //   <Pressable
-          //     onPress={() => navigation.navigate('Modal')}
-          //     style={({ pressed }) => ({
-          //       opacity: pressed ? 0.5 : 1,
-          //     })}
-          //   >
-          //     <FontAwesome
-          //       name="info-circle"
-          //       size={25}
-          //       color={colors[colorScheme].text}
-          //       // eslint-disable-next-line react-native/no-inline-styles
-          //       style={{ marginRight: 15 }}
-          //     />
-          //   </Pressable>
-          // ),
         })}
       />
     </BottomTab.Navigator>
