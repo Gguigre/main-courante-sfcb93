@@ -22,8 +22,7 @@ export const AllPostsScreen: React.FunctionComponent<Props> = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
+    paddingHorizontal: 12,
   },
   title: {
     fontSize: 20,

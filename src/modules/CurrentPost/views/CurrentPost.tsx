@@ -2,9 +2,10 @@ import { BottomTabNavigationProp } from '@react-navigation/bottom-tabs';
 import { CompositeNavigationProp } from '@react-navigation/core';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import * as React from 'react';
-import { StyleSheet } from 'react-native';
+import { Button, StyleSheet } from 'react-native';
 import { RootStackParamList, RootTabParamList } from '../../../../types';
 import { Text, View } from '../../../shared/views/Themed';
+import { useCurrentPostScreen } from './useCurrentPostScreen';
 
 type Props = CompositeNavigationProp<
   BottomTabNavigationProp<RootTabParamList, 'CurrentPost'>,
@@ -12,9 +13,16 @@ type Props = CompositeNavigationProp<
 >;
 
 export const CurrentPostScreen: React.FunctionComponent<Props> = () => {
+  const { currentPost, createPost } = useCurrentPostScreen();
+
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Poste en cours</Text>
+      {currentPost === null ? (
+        <View style={styles.noPostContainer}>
+          <Text>Aucun poste de secours en cours</Text>
+          <Button title="Créer un poste" onPress={createPost} />
+        </View>
+      ) : null}
     </View>
   );
 };
@@ -24,8 +32,5 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingHorizontal: 12,
   },
-  title: {
-    fontSize: 20,
-    fontWeight: 'bold',
-  },
+  noPostContainer: { alignSelf: 'center', flex: 1, justifyContent: 'center' },
 });
