@@ -12,8 +12,8 @@ import * as React from 'react';
 import { ColorSchemeName } from 'react-native';
 import { colors } from '../../../constants/Colors';
 import { RootStackParamList, RootTabParamList } from '../../../types';
-import { TabOneScreen } from '../../modules/CurrentPost/views/TabOneScreen';
-import { TabTwoScreen } from '../../modules/AllPosts/views/TabTwoScreen';
+import { AllPostsScreen } from '../../modules/AllPosts/views/AllPostsScreen';
+import { CurrentPostScreen } from '../../modules/CurrentPost/views/CurrentPost';
 import { ModalScreen } from '../../shared/views/ModalScreen';
 import { NotFoundScreen } from '../../shared/views/NotFoundScreen';
 import { Analytics } from '../analytics';
@@ -83,7 +83,7 @@ const BottomTabNavigator = () => {
     >
       <BottomTab.Screen
         name="CurrentPost"
-        component={TabTwoScreen}
+        component={CurrentPostScreen}
         options={{
           title: 'Poste en cours',
           tabBarIcon: ({ color }) => <TabBarIcon name="home" color={color} />,
@@ -91,7 +91,7 @@ const BottomTabNavigator = () => {
       />
       <BottomTab.Screen
         name="AllPosts"
-        component={TabOneScreen}
+        component={AllPostsScreen}
         options={() => ({
           title: 'Liste des postes',
           tabBarIcon: ({ color }) => <TabBarIcon name="list" color={color} />,
